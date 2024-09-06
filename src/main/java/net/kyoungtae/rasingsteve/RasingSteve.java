@@ -1,6 +1,9 @@
 package net.kyoungtae.rasingsteve;
 
 import com.mojang.logging.LogUtils;
+import net.kyoungtae.rasingsteve.entity.ModEntities;
+import net.kyoungtae.rasingsteve.entity.client.TestRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -27,9 +30,9 @@ public class RasingSteve
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        ModEntities.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -50,6 +53,9 @@ public class RasingSteve
 
     }
 
+
+
+
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
@@ -64,7 +70,7 @@ public class RasingSteve
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            EntityRenderers.register(ModEntities.TEST.get(), TestRenderer::new);
         }
     }
 }
