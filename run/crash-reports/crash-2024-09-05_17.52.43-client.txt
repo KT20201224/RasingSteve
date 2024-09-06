@@ -4,7 +4,7 @@
 Time: 2024-09-05 17:52:43
 Description: Rendering overlay
 
-java.lang.IllegalArgumentException: Failed to create model for rasingsteve:test
+java.lang.IllegalArgumentException: Failed to create model for rasingsteve:TestModel
 	at net.minecraft.client.renderer.entity.EntityRenderers.lambda$createEntityRenderers$26(EntityRenderers.java:164) ~[forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1.jar:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at java.util.HashMap.forEach(HashMap.java:1421) ~[?:?] {}
 	at net.minecraft.client.renderer.entity.EntityRenderers.createEntityRenderers(EntityRenderers.java:160) ~[forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1.jar:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}

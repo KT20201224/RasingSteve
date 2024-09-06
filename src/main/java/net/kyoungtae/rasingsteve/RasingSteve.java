@@ -2,6 +2,7 @@ package net.kyoungtae.rasingsteve;
 
 import com.mojang.logging.LogUtils;
 import net.kyoungtae.rasingsteve.entity.ModEntities;
+import net.kyoungtae.rasingsteve.entity.client.RhinoRenderer;
 import net.kyoungtae.rasingsteve.entity.client.TestRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
@@ -30,14 +31,11 @@ public class RasingSteve
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        modEventBus.addListener(this::commonSetup);
-
         ModEntities.register(modEventBus);
 
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
+        modEventBus.addListener(this::commonSetup);
 
-        // Register the item to a creative tab
+        MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
 
     }
@@ -70,6 +68,7 @@ public class RasingSteve
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
             EntityRenderers.register(ModEntities.TEST.get(), TestRenderer::new);
         }
     }

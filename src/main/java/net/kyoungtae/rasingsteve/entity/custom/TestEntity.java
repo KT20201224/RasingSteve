@@ -7,7 +7,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -21,12 +20,11 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nullable;
 
 public class TestEntity extends Animal {
-    public TestEntity(EntityType<? extends Animal> pEntityType, Level pLevel){
+    public TestEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
 
-    // 엔티티의 행동 특성 정의
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
@@ -42,8 +40,7 @@ public class TestEntity extends Animal {
 
     }
 
-    // 엔티티의 기본 특성 정의
-    public static AttributeSupplier.Builder createAttributes(){
+    public static AttributeSupplier.Builder createAttributes() {
         return Animal.createLivingAttributes()
                 .add(Attributes.MAX_HEALTH, 20D)
                 .add(Attributes.FOLLOW_RANGE, 24D)
@@ -53,7 +50,6 @@ public class TestEntity extends Animal {
                 .add(Attributes.ATTACK_DAMAGE, 2f);
     }
 
-    // 자식 엔티티
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
@@ -81,6 +77,5 @@ public class TestEntity extends Animal {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.DOLPHIN_DEATH;
-
     }
 }
