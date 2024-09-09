@@ -19,3 +19,16 @@ IDE: IntelliJ
 
 ---
 
+📝 todo List
+
+- Custom Mobs
+
+- Custom Entities
+
+- Custom Items & Blocks
+
+- Custom Bioms
+
+- Custom Sound Effects & Music
+
+- Custom reinforcement System
