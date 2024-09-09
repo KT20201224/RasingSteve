@@ -27,7 +27,7 @@ IDE: IntelliJ
 
 - Custom Items & Blocks
 
-- Custom Bioms
+- Custom Biomes & Dimensions
 
 - Custom Sound Effects & Music
 
