@@ -4,7 +4,10 @@ import com.mojang.logging.LogUtils;
 import net.kyoungtae.rasingsteve.entity.ModEntities;
 import net.kyoungtae.rasingsteve.entity.client.RhinoRenderer;
 import net.kyoungtae.rasingsteve.entity.client.TestRenderer;
+import net.kyoungtae.rasingsteve.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -35,6 +38,8 @@ public class RasingSteve
 
         modEventBus.addListener(this::commonSetup);
 
+        ModItems.register(modEventBus);
+
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
 
@@ -48,7 +53,10 @@ public class RasingSteve
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.SAPPHIRE);
+            event.accept(ModItems.RAW_SAPPHIRE);
+        }
     }
 
 
