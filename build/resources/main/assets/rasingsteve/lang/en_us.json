@@ -1,4 +1,6 @@
 {
   "item.rasingsteve.sapphire": "Sapphire",
-  "item.rasingsteve.raw_sapphire": "Raw_Sapphire"
+  "item.rasingsteve.raw_sapphire": "Raw_Sapphire",
+
+  "creativetab.custom_tab": "Custom Tab"
 }

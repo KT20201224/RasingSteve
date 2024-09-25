@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.kyoungtae.rasingsteve.entity.ModEntities;
 import net.kyoungtae.rasingsteve.entity.client.RhinoRenderer;
 import net.kyoungtae.rasingsteve.entity.client.TestRenderer;
+import net.kyoungtae.rasingsteve.item.ModCreativeModTabs;
 import net.kyoungtae.rasingsteve.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTab;
@@ -34,11 +35,12 @@ public class RasingSteve
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModEntities.register(modEventBus);
-
         modEventBus.addListener(this::commonSetup);
 
+
+        ModCreativeModTabs.register(modEventBus);
         ModItems.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
